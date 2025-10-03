@@ -54,10 +54,10 @@ class NumberRangeSummarizerImpl implements NumberRangeSummarizer {
             } else { // !isRange 
                 if (curr == (prev + 1)) {
                     isRange = true; 
-                    //indicate that we 
+                    //indicate that we are in a range now
                 } else {
                     // this is just another number in the sequence
-                    if (!isFirst) result.append(" ,"); isFirst = false;
+                    if (!isFirst) result.append(", "); isFirst = false; // the first number should not have a comma before it
                     result.append(Integer.toString(curr));
                 }
             }
