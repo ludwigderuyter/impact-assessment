@@ -38,6 +38,13 @@ class MainTest {
         assertTrue(exception.getMessage().contains("Invalid number format"));
     }
 
+    @Test 
+    void testCollectInfValues() {
+        NumberRangeSummarizerImpl summarizer = new NumberRangeSummarizerImpl();
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> summarizer.collect("1,2,2147483648,4"));
+        assertTrue(exception.getMessage().contains("Invalid number format"));
+    }
+
     @Test
     void testSummarizeCollectionValidInput() {
         NumberRangeSummarizerImpl summarizer = new NumberRangeSummarizerImpl();
